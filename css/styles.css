@@ -1,0 +1,33 @@
+body {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.row {
+    background-color: lightgray;
+    margin-top: 20%;
+}
+
+.row .dashed {
+    border: 1px dashed black;
+}
+
+.row .section {
+    padding: 1rem; 
+}
+
+#ControllersSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Btns */
+.btn-custom-event {
+    background-color: gray;
+}
+
+/* Content Section */
+#ContentDiv {
+    min-height: 300px;
+    background-color: lightgoldenrodyellow;
+}
