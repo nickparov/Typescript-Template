@@ -412,7 +412,6 @@
     // // make nick inherit from default person instance of the class / just object
     // const Nick = new DefaultPerson('Nick', '18', 'Software Developer');
     // console.log(Nick);
-
 // Prototypal Inheritance
     // Object.create() 1/2
         // function Person() {
@@ -484,6 +483,151 @@
         //         }
         //     }
         // }
+
+// Design Patterns
+    // #1 Singleton
+        // Such things as Logger Class or else will be a good example of a Singleton patterns
+        // where you have one object that needs to work in the whole system of classes
+        // Cashed 
+            // function Universe(world) {
+            //     if (typeof Universe.cach === "object") {
+            //         return Universe.cach;
+            //     }
+
+            //     this.world = world;
+            //     this.name = "Universe v0.1";
+
+            //     Universe.cach = this;
+
+            // }
+
+            // let uni_1 = new Universe('Heath');
+            // let uni_2 = new Universe();
+            // console.log(uni_1 === uni_2);
+        // Closure
+            // function Universe (world) {
+            //     // the cashed instance
+            //     let instance = this;
+            //     // proceed as normal
+            //     this.world = world;
+            //     this.name = name;
+
+            //     Universe = function() {
+            //         return instance;
+            //     }
+            // }
+
+            // let uni_1 = new Universe('Heath'),
+            //     uni_2 = new Universe();
+            // console.log(uni_1 === uni_2);
+    // #2 Factory
+        // When you need to create class instances during the runtime without knowing them beforehand
+        // // parent constructor
+        // function CarMaker() {};
+        // // parent methods
+        // CarMaker.prototype.drive = function drive() {
+        //     console.log("Vroom, I have " + this.doors + " doors... ");
+        // }
+        // // the static factory method
+        // CarMaker.factory = function factory(type) {
+        //     let constr = type,
+        //         newcar;
+        //     // error if the constructor doesn't exist
+        //     if (typeof CarMaker[constr] !== "function") {
+        //         throw {
+        //             name: "Error",
+        //             message: constr + " doesn't exist"
+        //         }
+        //     }
+        //     // inherit the parent but only once
+        //     if (CarMaker[constr].prototype.drive !== "function") {
+        //         CarMaker[constr].prototype = new CarMaker();
+        //     }
+        //     // create a new instance of type
+        //     newcar = new CarMaker[constr]();
+        //     // return
+        //     return newcar;
+        // }
+        // // Define CarMaker Constructors
+        // CarMaker.Compact = function() {
+        //     this.doors = 4;
+        // }
+        // CarMaker.Convertible = function() {
+        //     this.doors = 2;
+        // }
+        // CarMaker.SUV = function() {
+        //     this.doors = 17;
+        // }
+
+        // var newCar = CarMaker.factory('SUV');
+        // var newCar2 = CarMaker.factory('Compact');
+        // newCar.drive();
+        // newCar2.drive();
+    // #3 Iterator
+        // when you need to traverse a composite data structure that consist of separate pieces
+        // it is simply an interface that allows you to traverse it in YOUR logic
+        // const complexDataObj = (function () {
+        //     // Private
+        //     let index = 0,
+        //         storage = [1, 2, 3, 4, 5, 6, 7, 8], 
+        //         len = storage.length;
+        //     function _hasNext() {
+        //         if(index < len) {
+        //             return true; 
+        //         } else {
+        //             return false;
+        //         }
+        //     }
+        //     function getCurrent() {
+        //         return storage[index];
+        //     }
+        //     function rewind() {
+        //         index = 0;
+        //     }
+        //     // Public
+        //     function next() {
+        //         let element;
+        //         if(!_hasNext()) {
+        //             return null;
+        //         }
+        //         element = storage[index];
+        //         index += 1;
+
+        //         return element;
+        //     }
+        //     // Interface
+        //     return {
+        //         next,
+        //         getCurrent,
+        //         rewind
+        //     }
+
+        // })(); 
+        // console.log(complexDataObj.next());
+        // complexDataObj.next();
+        // console.log(complexDataObj.getCurrent());
+        // complexDataObj.rewind();
+        // console.log(complexDataObj.getCurrent());
+    // #4 Decorator
+        // when you need to tweak an object 
+        // by wrapping it with others objects at the runtime
+        function Sale(price) {
+            this.price = price;
+        };
+        Sale.prototype.getPrice = function (){
+            return this.price;
+        };
+        // Decorators
+        Sale.decorators = {};
+        Sale.decorators.fedtax = {
+            getPrice: function() {
+                var price = this.uber.getPrice();
+                price += price * 5 / 100;
+                return price;
+            }
+        }
+
+
 
 
 
