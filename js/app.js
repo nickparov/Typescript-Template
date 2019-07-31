@@ -339,7 +339,6 @@
             // console.log(anotherCar.getMaxSpeed());            
             // anotherCar.setMaxSpeed(1000);
             // console.log(anotherCar.getMaxSpeed());     
-
     // #5   
         // Share the Prototype       
             // function Machine() {
@@ -483,7 +482,6 @@
         //         }
         //     }
         // }
-
 // Design Patterns
     // #1 Singleton
         // Such things as Logger Class or else will be a good example of a Singleton patterns
@@ -609,23 +607,168 @@
         // complexDataObj.rewind();
         // console.log(complexDataObj.getCurrent());
     // #4 Decorator
-        // when you need to tweak an object 
-        // by wrapping it with others objects at the runtime
-        function Sale(price) {
-            this.price = price;
-        };
-        Sale.prototype.getPrice = function (){
-            return this.price;
-        };
-        // Decorators
-        Sale.decorators = {};
-        Sale.decorators.fedtax = {
-            getPrice: function() {
-                var price = this.uber.getPrice();
-                price += price * 5 / 100;
-                return price;
-            }
-        }
+        // // set up the constructor function
+        // function Sale(price) {
+        //     this.price = price;
+        // }
+        // // set up the proto
+        // Sale.prototype.getPrice = function getPrice(){
+        //     return this.price;
+        // }
+        // //  Set up decorators empty object
+        // Sale.decorators = {};
+        // // Configure them
+        // Sale.decorators.fedtax = {
+        //     getPrice: function() {
+        //         var price = this.uber.getPrice();
+        //         price += price * 5 / 100;
+        //         return price;
+        //     }
+        // }
+        // Sale.decorators.ukrtax = {
+        //     getPrice: function() {
+        //         var price = this.uber.getPrice();
+        //         price += price * 7.5 / 100;
+        //         return price;
+        //     }
+        // }
+        // Sale.decorators.toUKR = {
+        //     getPrice: function() {
+        //         var price = this.uber.getPrice();
+        //         price = price * 29.8;
+        //         return `${price.toFixed(2)} <UAH></UAH>`;
+        //     }
+        // }
+        // // Decorate Method
+        // Sale.prototype.decorate = function(decorator) {
+        //     // create a temporary constructor
+        //     var F = function(){},
+        //         overrides = this.constructor.decorators[decorator],
+        //         method, newObj;
+        //     F.prototype = this; // set it to be this instance which is the original object
+        //     // create a new object with temporary constructor
+        //     newObj = new F();
+        //     // set the uber prop
+        //     newObj.uber = F.prototype;
+        //     // add all the additional methods from the decorator
+        //     for (method in overrides) {
+        //         if (overrides.hasOwnProperty(method)) {
+        //             newObj[method] = overrides[method];
+        //         }
+        //     }
+        //     return newObj;
+        // }
+
+        // var product = {
+        //     type: "cigarettes",
+        //     price: new Sale(9.8),
+        //     mark: "Winston",
+        //     init: function init() {
+        //         this.price = this.price.decorate("ukrtax").decorate("toUKR");
+        //     }
+        // }
+        // product.init();
+        // console.log(product.price.getPrice()); 
+    // #5 Strategy  
+        // Description: "To use different algorithms at the runtime"
+        // var data = {
+        //     first_name: "Nick",
+        //     last_name: "Par",
+        //     age: 25,
+        //     username: "__0_o__"
+        // };
+
+        // // the validator
+        // var validator = {
+        //     // all available checks
+        //     types: {},
+
+        //     // messages
+        //     messages: [],
+
+        //     // current validation config
+        //     // name: validation type
+        //     config: {},
+
+        //     // interface
+        //     // data is key => value pairs
+        //     validate: function valiate(data) {
+        //         // declare all vars
+        //         var  i, msg, type, checker, result_ok;
+        //         // clear all messages
+        //         this.messages = [];
+
+        //         // go through each data prop and see if there is the corresponding type in types
+        //         for (i in data) {
+        //             if (data.hasOwnProperty(i)) {
+
+        //                 type = this.config[i]; // ex: [isNumber]
+        //                 checker = this.types[type]; // ex: [validator.types.isNumber]
+
+        //                 // check if the type was provided
+        //                 if (!type) {
+        //                     continue; // no need to validate
+        //                 }
+        //                 // check if we have the corresponding checker for the provided type
+        //                 if (!checker) {
+        //                     throw {
+        //                         name: "ValidatorError",
+        //                         message: "No handler to validate given type: " + type
+        //                     };
+        //                 }
+
+        //                 // check data[i] with the validator
+        //                 result_ok = checker.validate(data[i]);
+        //                 // if it didn't pass the validation
+        //                 // add message to the message array
+        //                 if(!result_ok) {
+        //                     this.messages.push(checker.instructions);
+        //                 }
+
+        //             }
+        //         }
+        //         return !this.hasErrors();
+        //     },
+
+        //     // Helpers
+        //     hasErrors: function hasErrors() {
+        //         return this.messages.length !== 0;
+        //     },
+
+        //     showErrors: function showErrors() {
+        //         console.log(this.messages.join("\n"));
+        //     }
+        // }
+
+        // // checks for non-empty values
+        // validator.types.isNonEmpty = {
+        //     validate: function validate(value) {
+        //         return value !== "";
+        //     },
+        //     instructions: "the value cannot be empty"
+        // };
+        // // checks if the value is a number
+        // validator.types.isNumber = {
+        //     validate: function validate(value) {
+        //         return !isNaN(value);
+        //     },
+        //     instructions: "the value can only be of number type"
+        // };
+
+        // // set up the config
+        // validator.config = {
+        //     first_name: "isNonEmpty",
+        //     age: "isNumber",
+        //     username: "isNonEmpty"
+        // };
+
+        
+        // if (!validator.validate(data)) {
+        //     validator.showErrors();
+        // }
+
+
+
 
 
 
