@@ -766,6 +766,204 @@
         // if (!validator.validate(data)) {
         //     validator.showErrors();
         // }
+    // #6 Mediator  
+        // function Person(name, surname, money) {
+        //     this.name = name;
+        //     this.surname = surname;
+        //     this.money = money || 100;
+        // }
+
+        // Person.prototype.donate = function(amount) {
+        //     if(this.money >= amount) {
+        //         // local
+        //         this.money -= amount;
+        //         // mediator event
+        //         mediator.PersonDonated(amount);
+        //     } else {
+        //         window.alert("Insufficient funds.");
+        //     }
+        // }
+
+        // Person.prototype.takeLoan = function(amount) {
+        //     if(mediator.PersonTookLoan(amount)) {
+        //         this.money += amount;
+        //         console.log("Successfully took " + amount + "$");
+        //     } else {
+        //         console.log("Not enough money in the Bank!");
+        //     }
+        // }
+
+        // function Bank(amount) {
+        //     this.balance = amount;
+        // }
+
+        // Bank.prototype = {
+        //     addMoney: function(amount) {
+        //         this.balance += amount;
+        //     },
+        //     getBalance: function() {
+        //         return this.balance;
+        //     },
+        //     takeMoney: function(amount) {
+        //         this.balance -= amount;
+        //     },
+        //     has: function(amount) {
+        //         return this.getBalance() >= amount ? true : false;
+        //     }
+        // }
+        // Bank.prototype.constructor = Bank;
+
+        // var mediator = {
+        //     // init function
+        //     init: function() {
+        //         var newPerson1 = new Person("Nick", "Parovyi", 200),
+        //             newPerson2 = new Person("Mike", "Jackson", 350);
+        //         this.people = [newPerson1, newPerson2];
+        //         this.bank = new Bank(200);
+        //     },
+        //     // Mediator
+        //     getPeople: function() {
+        //         return this.people;
+        //     },
+        //     getBank: function() {
+        //         return this.bank;
+        //     },
+        //     // Events
+        //     PersonDonated: function(amount) {
+        //         this.bank.addMoney(amount);
+        //     },
+        //     PersonTookLoan: function(amount) {
+        //         if (this.bank.has(amount)) {
+        //             this.bank.takeMoney(amount);
+        //             return true;
+        //         } 
+        //         return false;
+        //     }
+
+        // }
+
+        // mediator.init();
+        // var people = mediator.getPeople(),  
+        //     bank = mediator.getBank();
+    // #7 Observer
+        // var _Error = {
+        //     show: function show(text) {
+        //         throw new Error(text);
+        //     }
+        // }
+        // // var publisher = {
+        // //     subscribers: {
+        // //         any: []
+        // //     },
+        // //     subscribe: function(fn, type) {
+        // //         // if there is no type, make it equal to 'any'
+        // //         type = type || "any";
+        // //         // check if there is an array of such type
+        // //         if (typeof this.subscribers[type] === undefined) {
+        // //             this.subscribers[type] = [];
+        // //         } 
+        // //         // push fn to subscribers of type [type]
+        // //         this.subscribers[type].push(fn);
+        // //     },
+        // //     unsubscribe: function(fn, type) {
+        // //         this.traverseSubscribers("unsubscribe", fn, type);
+        // //     },
+        // //     publish: function(publication, type) {
+        // //         this.traverseSubscribers("publish", publication, type);
+        // //     },  
+        // //     traverseSubscribers: function(action, arg, type) {
+        // //         var pubtype = type || "any",
+        // //             subscribers = this.subscribers[pubtype];
+        // //         if(action === "publish") {
+        // //             if(typeof subscribers !== "undefined") {
+        // //                 subscribers.forEach(function(subscriber_fn) {
+        // //                     subscriber_fn(arg);
+        // //                 });
+        // //             } else {
+        // //                 _Error.show("there is no such an array of type: " + type + " in subscribers");
+        // //             }
+        // //         } else {
+        // //             subscribers.filter(function(subscriber_fn) {
+        // //                 if (subscriber_fn !== arg) {
+        // //                     return subscriber_fn;
+        // //                 }
+        // //             });
+        // //         }
+        // //     } 
+        // // }
+        
+        // // function makePublisher(o) {
+        // //     var prop;
+        // //     for (prop in publisher) {
+        // //         if(publisher.hasOwnProperty(prop) && typeof publisher[prop] === "function") {
+        // //             o[prop] = publisher[prop];
+        // //         }
+        // //     }
+        // //     o.subscribers = {any: []};
+        // // }
+        // var publisher = {
+        //     subscribers: {
+        //         any: []
+        //     },
+        //     subscribe: function(fn, type) {
+        //         type = type || "any";
+        //         if(typeof this.subscribers[type] === "undefined") {
+        //             this.subscribers[type] = [];
+        //         }
+        //         this.subscribers[type].push(fn);
+        //     },
+        //     unsubscribe: function(fn, type) {
+        //         type = type || "any";
+        //         var subscribers = this.subscribers[type];
+
+        //         subscribers = subscribers.filter(function(sub_fn) {
+        //             if (sub_fn !== fn) {
+        //                 return sub_fn;
+        //             }
+        //         }); 
+        //     },
+        //     publish: function(publication, type) {
+        //         type = type || "any";
+        //         var subscribers = this.subscribers[type];
+        //         subscribers.forEach(function(sub_fn) {
+        //             sub_fn(publication);
+        //         });
+        //     }
+        // }
+
+        // function makePublisher(o) {
+        //     var newPublisher = {
+        //         ...o,
+        //         ...publisher,
+        //         subscribers: {
+        //             any: []
+        //         }
+        //     }
+        //     return newPublisher;
+        // }
+
+        // var paper = {
+        //     daily: function() {
+        //         this.publish("B.N.T.");
+        //     },
+        //     monthly: function() {
+        //         this.publish("interesting things");
+        //     }
+        // }
+
+        // paper = makePublisher(paper);
+        // console.log(paper);
+
+        // var joe = {
+        //     drinkCoffee: function(paper) {
+        //         console.log('Just read ' + paper);
+        //     }
+        // }
+
+        // paper.subscribe(joe.drinkCoffee);
+
+        // paper.daily();
+        // paper.monthly();
 
 
 
