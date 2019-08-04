@@ -851,56 +851,8 @@
         //         throw new Error(text);
         //     }
         // }
-        // // var publisher = {
-        // //     subscribers: {
-        // //         any: []
-        // //     },
-        // //     subscribe: function(fn, type) {
-        // //         // if there is no type, make it equal to 'any'
-        // //         type = type || "any";
-        // //         // check if there is an array of such type
-        // //         if (typeof this.subscribers[type] === undefined) {
-        // //             this.subscribers[type] = [];
-        // //         } 
-        // //         // push fn to subscribers of type [type]
-        // //         this.subscribers[type].push(fn);
-        // //     },
-        // //     unsubscribe: function(fn, type) {
-        // //         this.traverseSubscribers("unsubscribe", fn, type);
-        // //     },
-        // //     publish: function(publication, type) {
-        // //         this.traverseSubscribers("publish", publication, type);
-        // //     },  
-        // //     traverseSubscribers: function(action, arg, type) {
-        // //         var pubtype = type || "any",
-        // //             subscribers = this.subscribers[pubtype];
-        // //         if(action === "publish") {
-        // //             if(typeof subscribers !== "undefined") {
-        // //                 subscribers.forEach(function(subscriber_fn) {
-        // //                     subscriber_fn(arg);
-        // //                 });
-        // //             } else {
-        // //                 _Error.show("there is no such an array of type: " + type + " in subscribers");
-        // //             }
-        // //         } else {
-        // //             subscribers.filter(function(subscriber_fn) {
-        // //                 if (subscriber_fn !== arg) {
-        // //                     return subscriber_fn;
-        // //                 }
-        // //             });
-        // //         }
-        // //     } 
-        // // }
-        
-        // // function makePublisher(o) {
-        // //     var prop;
-        // //     for (prop in publisher) {
-        // //         if(publisher.hasOwnProperty(prop) && typeof publisher[prop] === "function") {
-        // //             o[prop] = publisher[prop];
-        // //         }
-        // //     }
-        // //     o.subscribers = {any: []};
-        // // }
+
+
         // var publisher = {
         //     subscribers: {
         //         any: []
@@ -965,6 +917,95 @@
         // paper.daily();
         // paper.monthly();
 
+    // Practice Observer
+        // var publisher_obj = {
+        //     subscribers: {
+        //         any: []
+        //     },
+        //     subscribe: function(fn, type) {
+        //         type = type || "any";
+        //         if (typeof this.subscribers[type] === "undefined") {
+        //             this.subscribers[type] = [];
+        //         }
+        //         this.subscribers[type].push(fn);
+        //     },
+        //     unsubscribe: function(type, fn) {
+        //         type = type || "any";
+        //         // go through subscribers
+        //         this.traverseSubscribers("unsub", fn, type);
+        //     },
+        //     fire: function(type, data) {
+        //         type = type || "any";
+        //         // go through subscribers
+        //         this.traverseSubscribers("fire", data, type);
+        //     },
+        //     traverseSubscribers: function(purpose, arg, type) {
+        //         type = type || "any";
+        //         var subscribers = this.subscribers[type];
+        //         if(purpose === "unsub") {
+        //               subscribers = subscribers.filter(function(subscriber) {
+        //                 return subscriber !== arg;
+        //               });  
+        //         } else {
+        //             subscribers.forEach(function(subscriber) {
+        //                 subscriber(arg);
+        //             }); 
+        //         }
+                
+        //     }
+        // }
+
+        // function makePublisher(o) {
+        //     o = o || {};
+        //     var i;
+        //     for (i in publisher_obj) {
+        //         if(publisher_obj.hasOwnProperty(i)) {
+        //             o[i] = publisher_obj[i];
+        //         }
+        //     };
+        //     o.subscribers = {
+        //         any: []
+        //     };
+        // }
+
+        // var _$ = document.getElementById.bind(document);
+
+        // var ui = {
+        //     changeTitle: function(text) {
+        //         if(text === "") {
+        //             document.getElementById("title").innerHTML = "Title goes here";
+        //         }
+        //         document.getElementById("title").innerHTML = text;
+        //     }
+        // }
+
+        // var title_listener = {
+        //     value: null,
+        //     updateValue: function(val) {
+        //         this.value = val;
+        //         this.fire("title_changed", val);
+        //     },
+        //     getValue: function() {
+        //         return this.value;
+        //     },
+        //     init: function() {
+        //         _$("title_input").addEventListener('input', function(e) {
+        //             var curr_value = e.target.value,
+        //                 updateValue = title_listener.updateValue.bind(title_listener);
+        //             updateValue(curr_value);
+        //         });
+        //     }
+        // }
+
+        // title_listener.init();   
+        // makePublisher(title_listener);
+        // title_listener.subscribe(ui.changeTitle, "title_changed");
+
+
+
+        
+
+        
 
 
 
