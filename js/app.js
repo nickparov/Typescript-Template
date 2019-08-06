@@ -1001,6 +1001,15 @@
         // makePublisher(title_listener);
         // title_listener.subscribe(ui.changeTitle, "title_changed");
 
+// DOM
+    // #1 Document.createFragment
+    // var frag = document.createDocumentFragment(),
+    //     p = document.createElement('p');
+    //     t = document.createTextNode("Hello there");
+    // p.appendChild(t);
+    // frag.appendChild(p);
+    // document.body.appendChild(frag);
+
 
 
         
