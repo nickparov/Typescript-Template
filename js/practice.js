@@ -1,3 +1,5 @@
+// reference
+/*
 // Cached Functions
 
     // const func = function() {
@@ -61,7 +63,7 @@
     //     const parts = path.split('.');
     //     let i;
     //     let parent = MY_APP;
-    //     // remove the fisrt param from the array 
+    //     // remove the fisrt param from the array
     //     // if it's the name of our namespace
     //     if(parts[0] === 'MY_APP') {
     //         parts = parts.slice(1);
@@ -74,10 +76,10 @@
     //         }
 
     //         parent = parent[parts[i]];
-    //     }   
+    //     }
 
     //     return parent;
-    // }   
+    // }
 
     // MY_APP.namespace('modules.timer.simulateReload')
     // console.log(MY_APP);
@@ -90,7 +92,7 @@
     //     const parts = path.split('.');
     //     let i;
     //     let parent = MY_APP;
-    //     // remove the fisrt param from the array 
+    //     // remove the fisrt param from the array
     //     // if it's the name of our namespace
     //     if(parts[0] === 'MY_APP') {
     //         parts = parts.slice(1);
@@ -101,9 +103,9 @@
     //             parent[parts[i]] = {};
     //         }
     //         parent = parent[parts[i]];
-    //     }   
+    //     }
     //     return parent;
-    // }   
+    // }
 
     // // #1 Step: Create a namespace
     //     MY_APP.namespace('modules.timer');
@@ -111,7 +113,7 @@
     //     MY_APP.modules.timer = (function() {
     //         // #3 Declare dependancies
     //             // const module1 = MY_APP.modules.module1,
-    //             //       module2 = MY_APP.modules.module2           
+    //             //       module2 = MY_APP.modules.module2
     //         // #4 Add some methods and vars
     //             const state = {
     //                 intervalTime: 700,
@@ -154,14 +156,14 @@
         //                     modules.push(inner_module);
         //                 }
         //             }
-        //         } 
+        //         }
 
         //     // Initialize modules that we have
         //         for (i = 0; i < modules.length; i+=1) {
         //             Sandbox.modules[modules[i]](this);
         //         }
 
-        //     // call the Callback 
+        //     // call the Callback
         //         callback(this);
         // }
 
@@ -177,7 +179,7 @@
         //     console.log(box.getElement());
         // });
 // Sandbox practice:
-    // Set the modules 
+    // Set the modules
     //     Sandbox.modules = {
     //         dom: function(box) {
     //                 const vars = {
@@ -248,7 +250,7 @@
     // new Sandbox('*', function(box) {
     //     console.log(box.getVars());
     // });
-// Basic Inheritance 
+// Basic Inheritance
     // #1
         // function Parent(name) {
         //     this.name = name || "Alex";
@@ -265,14 +267,14 @@
         // }
         // // inherit
         // inherit(Child, Parent);
-        
+
         // const a = new Child('Misha');
         // const b = new Child('Lisha');
         // a.sayHi()
         // b.sayHi();
     // #2
         // Rent a Constructor
-        //     function Parent(firstName, lastName) {  
+        //     function Parent(firstName, lastName) {
         //         this.firstName = firstName;
         //         this.lastName = lastName;
         //     }
@@ -282,7 +284,7 @@
         //     }
         //     let newChild = new Child('Alex', 'Swarowsky');
         //     console.log(newChild);
-    // #3 
+    // #3
         // Multiple inheritance by borrowing constructors
             // function Machine() {
             //     this.type = "Mechanical";
@@ -302,7 +304,7 @@
 
             // let newCar = new Car(450, 'Titanium');
             // console.log(newCar);
-    // #4 
+    // #4
         // Rent and set a prototype
             // function Machine(material) {
             //     this.material = material || null;
@@ -326,7 +328,7 @@
             // function Car(maxSpeed, material) {
             //     Machine.apply(this, arguments);
             //     CarMachine.apply(this, arguments);
-            // }   
+            // }
             // Car.prototype = new CarMachine();
 
             // let newCar = new Car(null, 'Titanium');
@@ -336,11 +338,11 @@
             // console.log(newCar.getMaxSpeed());
 
             // let anotherCar = new Car(null, "Plastic");
-            // console.log(anotherCar.getMaxSpeed());            
+            // console.log(anotherCar.getMaxSpeed());
             // anotherCar.setMaxSpeed(1000);
-            // console.log(anotherCar.getMaxSpeed());     
-    // #5   
-        // Share the Prototype       
+            // console.log(anotherCar.getMaxSpeed());
+    // #5
+        // Share the Prototype
             // function Machine() {
             //     this.type = "Machine";
             // };
@@ -366,7 +368,7 @@
             // let newCar = new Car(650);
             // console.log(newCar.getType());
             // console.log(newCar.getMaxSpeed());
-    // #6 
+    // #6
         // inherit function (proxy constructors)
             // let inheritWithProxy = (function () {
             //     function F = function() {};
@@ -376,7 +378,7 @@
             //         C.uber = P.prototype;
             //         C.prototype.constructor = C;
             //     }
-            // })(); 
+            // })();
 // Classical Inheritance Practice
     // function Person() {
     //     this.props = {
@@ -486,7 +488,7 @@
     // #1 Singleton
         // Such things as Logger Class or else will be a good example of a Singleton patterns
         // where you have one object that needs to work in the whole system of classes
-        // Cashed 
+        // Cashed
             // function Universe(world) {
             //     if (typeof Universe.cach === "object") {
             //         return Universe.cach;
@@ -567,11 +569,11 @@
         // const complexDataObj = (function () {
         //     // Private
         //     let index = 0,
-        //         storage = [1, 2, 3, 4, 5, 6, 7, 8], 
+        //         storage = [1, 2, 3, 4, 5, 6, 7, 8],
         //         len = storage.length;
         //     function _hasNext() {
         //         if(index < len) {
-        //             return true; 
+        //             return true;
         //         } else {
         //             return false;
         //         }
@@ -600,7 +602,7 @@
         //         rewind
         //     }
 
-        // })(); 
+        // })();
         // console.log(complexDataObj.next());
         // complexDataObj.next();
         // console.log(complexDataObj.getCurrent());
@@ -668,8 +670,8 @@
         //     }
         // }
         // product.init();
-        // console.log(product.price.getPrice()); 
-    // #5 Strategy  
+        // console.log(product.price.getPrice());
+    // #5 Strategy
         // Description: "To use different algorithms at the runtime"
         // var data = {
         //     first_name: "Nick",
@@ -762,11 +764,11 @@
         //     username: "isNonEmpty"
         // };
 
-        
+
         // if (!validator.validate(data)) {
         //     validator.showErrors();
         // }
-    // #6 Mediator  
+    // #6 Mediator
         // function Person(name, surname, money) {
         //     this.name = name;
         //     this.surname = surname;
@@ -836,14 +838,14 @@
         //         if (this.bank.has(amount)) {
         //             this.bank.takeMoney(amount);
         //             return true;
-        //         } 
+        //         }
         //         return false;
         //     }
 
         // }
 
         // mediator.init();
-        // var people = mediator.getPeople(),  
+        // var people = mediator.getPeople(),
         //     bank = mediator.getBank();
     // #7 Observer
         // var _Error = {
@@ -872,7 +874,7 @@
         //             if (sub_fn !== fn) {
         //                 return sub_fn;
         //             }
-        //         }); 
+        //         });
         //     },
         //     publish: function(publication, type) {
         //         type = type || "any";
@@ -945,13 +947,13 @@
         //         if(purpose === "unsub") {
         //               subscribers = subscribers.filter(function(subscriber) {
         //                 return subscriber !== arg;
-        //               });  
+        //               });
         //         } else {
         //             subscribers.forEach(function(subscriber) {
         //                 subscriber(arg);
-        //             }); 
+        //             });
         //         }
-                
+
         //     }
         // }
 
@@ -997,7 +999,7 @@
         //     }
         // }
 
-        // title_listener.init();   
+        // title_listener.init();
         // makePublisher(title_listener);
         // title_listener.subscribe(ui.changeTitle, "title_changed");
 
@@ -1009,22 +1011,4 @@
     // p.appendChild(t);
     // frag.appendChild(p);
     // document.body.appendChild(frag);
-
-
-
-        
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
