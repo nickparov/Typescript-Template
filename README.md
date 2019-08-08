@@ -1,3 +1,9 @@
+## What's included?
+⋅⋅* Webpack. ( -watchmode is on )
+⋅⋅* Typescript. 
+⋅⋅* JQuery (cdn). 
+⋅⋅* Bootstrap (cdn). 
+
 
 ## Installation
 
