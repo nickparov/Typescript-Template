@@ -1,7 +1,39 @@
-import _Logger from './Controllers/Logger/Logger';
+// Structure Tree
+/*
+  -> App
+     |
+      - LoggerController
+      - Mediator
+        |
+         - InputController
+         - UIController
+*/
+import {
+  LoggerController,
+  Logger
+} from './export';
 
+interface AppInterface {
+  start(): void;
+};
 
-var Logger = new _Logger('System'),
-    log = Logger.log.bind(Logger);
+class App {
+  // Private
+  private _Logger: Logger;
 
-log("Hello");
+  // Public
+  start() {
+    // Logger Setup
+      this._Logger = LoggerController.getSystemLogger();
+      var log = this._Logger.log.bind(this._Logger);
+    // Mediator Setup
+
+    log('App Started');
+
+  }
+};
+
+// Declare and instanciate Application
+var Application = new App();
+// Start Application
+Application.start();
