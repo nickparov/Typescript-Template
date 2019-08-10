@@ -17,9 +17,7 @@
   },
   "homepage": "https://github.com/nickparov/NewPortfolioWeb#readme",
   "devDependencies": {
-    "css-loader": "^3.2.0",
     "json-loader": "^0.5.7",
-    "style-loader": "^1.0.0",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
     "webpack": "^4.39.1",
