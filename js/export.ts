@@ -1,7 +1,9 @@
-// Base Types
-export { Base } from "./BaseClasses/Base/Base";
-export { Logger } from "./BaseClasses/Logger/Logger";
+// Base Classes
+export { Base } from "./Core/Classes/Base/Base";
+export { Logger } from "./Core/Classes/Logger/Logger";
 
 // Controllers
-export { Mediator } from "./Controllers/Mediator/Mediator";
-export { LoggerController } from "./Controllers/Logger/Logger";
+export { LoggerController } from "./Core/Controllers/Logger/Logger";
+
+// App export
+export { App } from "./Core/App/App";
