@@ -1,27 +1,27 @@
 {
-  "name": "newportfolioweb",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "webpack-dev-server --mode development --watch --open 'Google Chrome'"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nickparov/NewPortfolioWeb.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nickparov/NewPortfolioWeb/issues"
-  },
-  "homepage": "https://github.com/nickparov/NewPortfolioWeb#readme",
-  "devDependencies": {
-    "json-loader": "^0.5.7",
-    "ts-loader": "^6.0.4",
-    "typescript": "^3.5.3",
-    "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.8.0"
-  }
+    "name": "newportfolioweb",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack --progress",
+        "watch": "webpack-dev-server --open 'Google Chrome' --progress --watch --config webpack.config.js",
+        "dev": "concurrently --kill-others \"npm run build\" \"npm run watch\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nickparov/NewPortfolioWeb.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "homepage": "http://nickparov.com",
+    "devDependencies": {
+        "json-loader": "^0.5.7",
+        "ts-loader": "^6.0.4",
+        "typescript": "^3.5.3",
+        "webpack": "^4.39.1",
+        "webpack-cli": "^3.3.6",
+        "webpack-dev-server": "^3.8.0",
+        "concurrently": "^4.1.1"
+    }
 }
